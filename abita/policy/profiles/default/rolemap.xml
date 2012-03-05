@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<rolemap>
+<!--   <roles>
+    <role name="Anonymous"/>
+    <role name="Authenticated"/>
+    <role name="Manager"/>
+    <role name="Site Administrator"/>
+    <role name="Member"/>
+    <role name="Owner"/>
+    <role name="Reviewer"/>
+    <role name="Reader" />
+    <role name="Editor" />
+    <role name="Contributor" />
+  </roles> -->
+  <permissions>
+    <permission name="Portlets: Manage portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage Events portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage Login portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage Navigation portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage QuickUpload portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage RSS portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage Recent portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage Review portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="Portlets: Manage Search portlets"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="plone.portlet.collection: Add collection portlet"
+                acquire="False">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+    <permission name="plone.portlet.static: Add static portlet"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Editor" />
+    </permission>
+  </permissions>
+</rolemap>

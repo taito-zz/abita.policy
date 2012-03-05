@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<portlets>
+
+  <!-- Hide default Calendar portlet -->
+  <!-- <portlet addview="portlets.Calendar" remove="true" /> -->
+  <!-- Hide default News portlet -->
+  <!-- <portlet addview="portlets.News" remove="true" /> -->
+  <!-- Hide Classic portlet -->
+  <!-- <portlet addview="portlets.Classic" remove="true" /> -->
+
+  <!-- Remove portlets from right column -->
+  <!-- <assignment remove="True" name="news" category="context" key="/"
+              manager="plone.rightcolumn" type="portlets.News" /> -->
+
+  <!-- <assignment remove="True" name="events" category="context" key="/"
+              manager="plone.rightcolumn" type="portlets.Events" /> -->
+
+</portlets>

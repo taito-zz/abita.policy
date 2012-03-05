@@ -1,0 +1,10 @@
+abita/policy/docs/_build/*
+*.egg-info
+*.mo
+*.pyc
+*.pyo
+*~
+.DS_Store
+.long-description.html
+dist
+setup.cfg
