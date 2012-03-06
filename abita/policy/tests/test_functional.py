@@ -75,5 +75,5 @@ def test_suite():
     return unittest.TestSuite([
         DocFileSuite('functional/author.txt'),
         DocFileSuite('functional/browser.txt'),
-        DocFileSuite('functional/portlets.txt'),
+        # DocFileSuite('functional/portlets.txt'),
         ])

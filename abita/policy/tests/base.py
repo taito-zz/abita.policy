@@ -18,7 +18,7 @@ class AbitaPolicyLayer(PloneSandboxLayer):
         # Load ZCML
         import abita.policy
         self.loadZCML(package=abita.policy)
-        self.loadZCML(package=abita.policy, name="overrides.zcml")
+        # self.loadZCML(package=abita.policy, name="overrides.zcml")
 
         # Required by Products.CMFPlone:plone-content to setup defaul plone site.
         z2.installProduct(app, 'Products.PythonScripts')

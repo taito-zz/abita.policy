@@ -24,44 +24,4 @@
 
   <include package=".browser" />
 
-  <permission
-    id="plone.app.portlets.ManageEventsPortlets"
-    title="Portlets: Manage Events portlets"
-    />
-
-  <permission
-    id="plone.app.portlets.ManageLoginPortlets"
-    title="Portlets: Manage Login portlets"
-    />
-
-  <permission
-    id="plone.app.portlets.ManageNavigationPortlets"
-    title="Portlets: Manage Navigation portlets"
-    />
-
-  <permission
-    id="plone.app.portlets.ManageQuickUploadPortlets"
-    title="Portlets: Manage QuickUpload portlets"
-    />
-
-  <permission
-    id="plone.app.portlets.ManageRSSPortlets"
-    title="Portlets: Manage RSS portlets"
-    />
-
-  <permission
-    id="plone.app.portlets.ManageRecentPortlets"
-    title="Portlets: Manage Recent portlets"
-    />
-
-  <permission
-    id="plone.app.portlets.ManageReviewPortlets"
-    title="Portlets: Manage Review portlets"
-    />
-
-  <permission
-    id="plone.app.portlets.ManageSearchPortlets"
-    title="Portlets: Manage Search portlets"
-    />
-
 </configure>

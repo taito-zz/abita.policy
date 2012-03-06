@@ -15,22 +15,4 @@
     layer=".interfaces.IAbitaPolicyLayer"
     />
 
-  <browser:page
-    for="*"
-    class=".foldercontents.FolderContentsView"
-    name="folder_contents"
-    template="templates/folder_contents.pt"
-    permission="cmf.ListFolderContents"
-    layer=".interfaces.IAbitaPolicyLayer"
-    />
-
-  <browser:page
-    for="*"
-    class=".foldercontents.FolderContentsKSSView"
-    attribute="update_table"
-    name="foldercontents_update_table"
-    permission="cmf.ListFolderContents"
-    layer=".interfaces.IAbitaPolicyLayer"
-    />
-
 </configure>
