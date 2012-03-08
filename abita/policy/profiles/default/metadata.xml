@@ -3,6 +3,6 @@
   <version>1</version>
   <dependencies>
     <dependency>profile-Products.PloneFormGen:default</dependency>
-    <!-- <dependency>profile-abita.theme:default</dependency> -->
+    <dependency>profile-abita.theme:default</dependency>
   </dependencies>
 </metadata>

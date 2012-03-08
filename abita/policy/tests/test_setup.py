@@ -239,5 +239,5 @@ class TestCase(IntegrationTestCase):
 
     def test_dependencies_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
-        # self.failUnless(installer.isProductInstalled('abita.theme'))
+        self.failUnless(installer.isProductInstalled('abita.theme'))
         self.failUnless(installer.isProductInstalled('PloneFormGen'))

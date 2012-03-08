@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='abita.policy',
-    version='0.2',
+    version='0.3',
     description="Turns Plone Site into Abita Site.",
     long_description=open("README.rst").read(),
     # Get more strings from
@@ -26,9 +26,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        # 'abita.theme',
         'Products.PloneFormGen',
+        'abita.theme',
         'hexagonit.testing',
+        'plone.app.testing',
         'plone.browserlayer',
         'setuptools',
         'z3c.autoinclude',

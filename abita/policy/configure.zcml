@@ -9,7 +9,9 @@
   <!-- This might break whole plone site! -->
   <!-- <includeDependencies package="." /> -->
 
+  
   <include package="z3c.jbot"/>
+  <include package="abita.theme"/>
   <include package="Products.PloneFormGen"/>
 
   <i18n:registerTranslations directory="locales" />
