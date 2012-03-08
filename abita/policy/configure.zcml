@@ -8,7 +8,6 @@
   <!-- Do not use this directive!! -->
   <!-- This might break whole plone site! -->
   <!-- <includeDependencies package="." /> -->
-
   
   <include package="z3c.jbot"/>
   <include package="abita.theme"/>
