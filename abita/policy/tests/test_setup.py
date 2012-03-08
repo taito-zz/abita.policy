@@ -83,23 +83,46 @@ class TestCase(IntegrationTestCase):
         mailhost = getToolByName(self.portal, 'MailHost')
         self.assertEqual(mailhost.smtp_port, 25)
 
-    # def test_portlets__news_removed_from_right_column(self):
-    #     from zope.component import getUtility
-    #     from zope.component import getMultiAdapter
-    #     from plone.portlets.interfaces import IPortletManager
-    #     from plone.portlets.interfaces import IPortletAssignmentMapping
-    #     column = getUtility(IPortletManager, name=u"plone.rightcolumn")
-    #     assignable = getMultiAdapter((self.portal, column), IPortletAssignmentMapping)
-    #     self.assertFalse('news' in assignable.keys())
+    def test_languages__site(self):
+        self.assertEquals('en', self.portal.Language())
 
-    # def test_portlets__events_removed_from_right_column(self):
-    #     from zope.component import getUtility
-    #     from zope.component import getMultiAdapter
-    #     from plone.portlets.interfaces import IPortletManager
-    #     from plone.portlets.interfaces import IPortletAssignmentMapping
-    #     column = getUtility(IPortletManager, name=u"plone.rightcolumn")
-    #     assignable = getMultiAdapter((self.portal, column), IPortletAssignmentMapping)
-    #     self.assertFalse('events' in assignable.keys())
+    def test_languages__available(self):
+        tool = getToolByName(self.portal, 'portal_languages')
+        self.assertEquals(
+            tool.listSupportedLanguages(),
+            [('en', u'English'), ('ja', u'Japanese')]
+        )
+
+    def test_languages__use_request_negotiation(self):
+        tool = getToolByName(self.portal, 'portal_languages')
+        self.assertTrue(tool.use_request_negotiation)
+
+    def test_portlets_left_column__navigation_removed(self):
+        from zope.component import getUtility
+        from zope.component import getMultiAdapter
+        from plone.portlets.interfaces import IPortletManager
+        from plone.portlets.interfaces import IPortletAssignmentMapping
+        column = getUtility(IPortletManager, name=u"plone.leftcolumn")
+        assignable = getMultiAdapter((self.portal, column), IPortletAssignmentMapping)
+        self.assertFalse('navigation' in assignable.keys())
+
+    def test_portlets_right_column__news_removed(self):
+        from zope.component import getUtility
+        from zope.component import getMultiAdapter
+        from plone.portlets.interfaces import IPortletManager
+        from plone.portlets.interfaces import IPortletAssignmentMapping
+        column = getUtility(IPortletManager, name=u"plone.rightcolumn")
+        assignable = getMultiAdapter((self.portal, column), IPortletAssignmentMapping)
+        self.assertFalse('news' in assignable.keys())
+
+    def test_portlets_right_column__events_removed(self):
+        from zope.component import getUtility
+        from zope.component import getMultiAdapter
+        from plone.portlets.interfaces import IPortletManager
+        from plone.portlets.interfaces import IPortletAssignmentMapping
+        column = getUtility(IPortletManager, name=u"plone.rightcolumn")
+        assignable = getMultiAdapter((self.portal, column), IPortletAssignmentMapping)
+        self.assertFalse('events' in assignable.keys())
 
     def test_disable_self_reg(self):
         perms = self.portal.rolesOfPermission(permission='Add portal member')

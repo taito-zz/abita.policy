@@ -8,11 +8,30 @@
   <!-- Hide Classic portlet -->
   <!-- <portlet addview="portlets.Classic" remove="true" /> -->
 
-  <!-- Remove portlets from right column -->
-  <!-- <assignment remove="True" name="news" category="context" key="/"
-              manager="plone.rightcolumn" type="portlets.News" /> -->
+  <!-- Remove portlets from left column -->
+  <assignment
+    category="context"
+    key="/"
+    manager="plone.leftcolumn"
+    name="navigation"
+    remove="True"
+    />
 
-  <!-- <assignment remove="True" name="events" category="context" key="/"
-              manager="plone.rightcolumn" type="portlets.Events" /> -->
+  <!-- Remove portlets from right column -->
+  <assignment
+    category="context"
+    key="/"
+    manager="plone.rightcolumn"
+    name="news"
+    remove="True"
+    />
+
+  <assignment
+    category="context"
+    key="/"
+    manager="plone.rightcolumn"
+    name="events"
+    remove="True"
+    />
 
 </portlets>
