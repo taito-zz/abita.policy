@@ -19,7 +19,7 @@ class TestCase(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('abita.policy'))
 
-    def test_uninstall(self):
+    def test_uninstall__package(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         installer.uninstallProducts(['abita.policy'])
         self.failIf(installer.isProductInstalled('abita.policy'))
@@ -50,6 +50,11 @@ class TestCase(IntegrationTestCase):
     def test_properties__email_from_name(self):
         self.assertEqual(self.portal.getProperty('email_from_name'), 'ABITA')
 
+    def test_propertiestool__default_page(self):
+        properties = getToolByName(self.portal, 'portal_properties')
+        site_props = properties.site_properties
+        self.assertEqual(site_props.getProperty('default_page'), ('abita-view',))
+
     def test_propertiestool__disable_nonfolderish_sections(self):
         properties = getToolByName(self.portal, 'portal_properties')
         site_props = properties.site_properties
@@ -59,6 +64,11 @@ class TestCase(IntegrationTestCase):
         properties = getToolByName(self.portal, 'portal_properties')
         site_props = properties.site_properties
         self.assertEqual(site_props.getProperty('default_language'), 'ja')
+
+    def test_propertiestool__external_links_open_new_window(self):
+        properties = getToolByName(self.portal, 'portal_properties')
+        site_props = properties.site_properties
+        self.assertEqual(site_props.getProperty('external_links_open_new_window'), 'true')
 
     def test_propertiestool__webstats_js(self):
         properties = getToolByName(self.portal, 'portal_properties')
@@ -136,6 +146,9 @@ class TestCase(IntegrationTestCase):
     def test_tinymce__link_using_uids(self):
         tinymce = getToolByName(self.portal, 'portal_tinymce')
         self.assertTrue(tinymce.link_using_uids)
+
+    def test_front_page_removed(self):
+        self.assertRaises(KeyError, lambda: self.portal['front-page'])
 
     def test_Member_folder_exclude_from_nav(self):
         folder = self.portal['Members']
@@ -237,7 +250,10 @@ class TestCase(IntegrationTestCase):
             )
         )
 
-    def test_dependencies_installed(self):
+    def test_abita_theme_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('abita.theme'))
+
+    def test_PloneFormGen_installed(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('PloneFormGen'))

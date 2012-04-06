@@ -1,14 +1,14 @@
 from Products.CMFCore.utils import getToolByName
 
 
-# def setUpMembersFolder(context):
-#     portal = context.getSite()
-#     members = portal.get('Members')
-#     if members and not members.exclude_from_nav():
-#         log = context.getLogger(__name__)
-#         members.setExcludeFromNav(True)
-#         members.reindexObject(idxs=['exclude_from_nav'])
-#         log.info('Member folder excluded from navigation.')
+def removeObjFromPortalRoot(context, objid):
+    portal = context.getSite()
+    if portal.get(objid):
+        portal.manage_delObjects([objid])
+        log = context.getLogger(__name__)
+        message = '{0} removed.'.format(objid)
+        log.info(message)
+
 
 def exclude_from_nav(context, id):
     portal = context.getSite()
@@ -76,11 +76,26 @@ def setNewsFolder(context):
         folder.reindexObject(idxs=['language'])
 
 
+def uninstall_package(context, packages):
+    """Uninstall packages.
+
+    :param packages: List of package names.
+    :type packages: list
+    """
+    portal = context.getSite()
+    installer = getToolByName(portal, 'portal_quickinstaller')
+    packages = [
+        package for package in packages if installer.isProductInstalled(package)
+    ]
+    installer.uninstallProducts(packages)
+
+
 def setupVarious(context):
 
     if context.readDataFile('abita.policy_various.txt') is None:
         return
 
+    removeObjFromPortalRoot(context, 'front-page')
     exclude_from_nav(context, 'Members')
     exclude_from_nav(context, 'events')
     setNewsFolder(context)
@@ -91,3 +106,4 @@ def setupVarious(context):
     createFolder(context, 'contact', exclude=False)
 
     set_firstweekday(context)
+    uninstall_package(context, ['plonetheme.classic'])

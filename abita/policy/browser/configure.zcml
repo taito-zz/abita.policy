@@ -7,12 +7,4 @@
   <include package="z3c.jbot" file="meta.zcml" />
   <browser:jbot directory="overrides" layer=".interfaces.IAbitaPolicyLayer" />
 
-  <browser:page
-    name="demo"
-    for="*"
-    class=".template.DemoView"
-    permission="zope2.View"
-    layer=".interfaces.IAbitaPolicyLayer"
-    />
-
 </configure>
