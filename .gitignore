@@ -6,5 +6,6 @@ abita/policy/docs/_build/*
 *~
 .DS_Store
 .long-description.html
+build
 dist
 setup.cfg
