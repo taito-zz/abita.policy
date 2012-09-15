@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_properties" meta_type="Plone Properties Tool">
  <object name="site_properties" meta_type="Plone Property Sheet">
-  <property
-   name="disable_nonfolderish_sections"
-   type="boolean">True</property>
+  <property name="disable_nonfolderish_sections" type="boolean">True</property>
   <property name="default_page" type="lines">
    <element value="abita-view"/>
   </property>
@@ -22,6 +20,6 @@
   })();
 
 &lt;/script&gt;</property>
-<property name="use_email_as_login" type="boolean">True</property>
+  <property name="use_email_as_login" type="boolean">True</property>
  </object>
 </object>

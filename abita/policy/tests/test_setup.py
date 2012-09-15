@@ -1,5 +1,5 @@
-from abita.policy.tests.base import IntegrationTestCase
 from Products.CMFCore.utils import getToolByName
+from abita.policy.tests.base import IntegrationTestCase
 
 
 class TestCase(IntegrationTestCase):
@@ -41,7 +41,7 @@ class TestCase(IntegrationTestCase):
     def test_properties_description(self):
         self.assertEqual(
             self.portal.getProperty('description'),
-            'Open Source Technologies and Open Businesses'
+            'Open Source Technologies for Open Mind(ed)'
         )
 
     def test_properties__email_from_address(self):
@@ -87,11 +87,11 @@ class TestCase(IntegrationTestCase):
 
     def test_mailhost__smtp_host(self):
         mailhost = getToolByName(self.portal, 'MailHost')
-        self.assertEqual(mailhost.smtp_host, 'smtp.nebula.fi')
+        self.assertEqual(mailhost.smtp_host, 'smtp.gmail.com')
 
     def test_mailhost__smtp_port(self):
         mailhost = getToolByName(self.portal, 'MailHost')
-        self.assertEqual(mailhost.smtp_port, 25)
+        self.assertEqual(mailhost.smtp_port, 587)
 
     def test_languages__site(self):
         self.assertEquals('en', self.portal.Language())

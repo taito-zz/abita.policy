@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <site>
- <property name="title">ABITA</property>
- <property name="description">Open Source Technologies and Open Businesses</property>
- <property name="email_from_address"
-    type="string">info@abita.fi</property>
- <property name="email_from_name"
-    type="string">ABITA</property>
+  <property name="title">ABITA</property>
+  <property name="description">Open Source Technologies for Open Mind(ed)</property>
+  <property name="email_from_address" type="string">info@abita.fi</property>
+  <property name="email_from_name" type="string">ABITA</property>
 </site>

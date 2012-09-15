@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <import-steps>
-  <import-step id="abita.policy.various"
-               version="2012-0001"
-               handler="abita.policy.setuphandlers.setupVarious"
-               title="abita.policy: miscellaneous import steps">
+  <import-step
+    handler="abita.policy.setuphandlers.setupVarious"
+    id="abita.policy.various"
+    title="abita.policy: miscellaneous import steps"
+    version="2012-0001">
     Various import steps that are not handled by GS import/export
     handlers.
   </import-step>

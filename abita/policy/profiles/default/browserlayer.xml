@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <layers>
   <layer
-      name="abita.policy"
-      interface="abita.policy.browser.interfaces.IAbitaPolicyLayer"
-      />
+    interface="abita.policy.browser.interfaces.IAbitaPolicyLayer"
+    name="abita.policy"
+    />
 </layers>

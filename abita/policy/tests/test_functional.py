@@ -11,7 +11,7 @@ import manuel.doctest
 import manuel.testing
 import re
 import transaction
-import unittest2 as unittest
+import unittest
 
 FLAGS = doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS | doctest.REPORT_NDIFF | doctest.REPORT_ONLY_FIRST_FAILURE
 
@@ -75,5 +75,4 @@ def test_suite():
     return unittest.TestSuite([
         DocFileSuite('functional/author.txt'),
         DocFileSuite('functional/browser.txt'),
-        # DocFileSuite('functional/portlets.txt'),
         ])
