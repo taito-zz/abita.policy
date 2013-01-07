@@ -21,7 +21,6 @@ class AbitaPolicyLayer(PloneSandboxLayer):
         # Required by Products.CMFPlone:plone-content to setup defaul plone site.
         z2.installProduct(app, 'Products.PythonScripts')
 
-
     def setUpPloneSite(self, portal):
         """Set up Plone."""
 

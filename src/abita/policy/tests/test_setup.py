@@ -9,11 +9,7 @@ class TestCase(IntegrationTestCase):
         self.portal = self.layer['portal']
 
     def checkRoles(self, obj, permission):
-        return [
-                item for item in obj.rolesOfPermission(
-                    permission
-                ) if item['selected'] == 'SELECTED'
-            ]
+        return [item for item in obj.rolesOfPermission(permission) if item['selected'] == 'SELECTED']
 
     def test_is_abita_policy_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -40,9 +36,7 @@ class TestCase(IntegrationTestCase):
 
     def test_properties_description(self):
         self.assertEqual(
-            self.portal.getProperty('description'),
-            'Open Source Technologies for Open Mind(ed)'
-        )
+            self.portal.getProperty('description'), 'Open Source Technologies and Open Businesses')
 
     def test_properties__email_from_address(self):
         self.assertEqual(self.portal.getProperty('email_from_address'), 'info@abita.fi')
@@ -98,10 +92,8 @@ class TestCase(IntegrationTestCase):
 
     def test_languages__available(self):
         tool = getToolByName(self.portal, 'portal_languages')
-        self.assertEquals(
-            tool.listSupportedLanguages(),
-            [('en', u'English'), ('ja', u'Japanese')]
-        )
+        self.assertEquals(tool.listSupportedLanguages(), [
+            ('en', u'English'), ('fi', u'Finnish'), ('ja', u'Japanese')])
 
     def test_languages__use_request_negotiation(self):
         tool = getToolByName(self.portal, 'portal_languages')

@@ -5,14 +5,10 @@
   xmlns:i18n="http://namespaces.zope.org/i18n"
   xmlns="http://namespaces.zope.org/zope">
 
-  <!-- Do not use this directive!! -->
-  <!-- This might break whole plone site! -->
-  <!-- <includeDependencies package="." /> -->
-
-  <include package="z3c.jbot"/>
+  <!-- <include package="z3c.jbot"/> -->
   <include package="abita.theme"/>
   <include package="Products.PloneFormGen"/>
-
+  <!-- <include package=".browser" /> -->
   <i18n:registerTranslations directory="locales" />
 
   <genericsetup:registerProfile
@@ -22,7 +18,5 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     title="abita.policy"
     />
-
-  <include package=".browser" />
 
 </configure>
