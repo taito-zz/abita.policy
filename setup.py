@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='abita.policy',
-    version='0.4',
+    version='0.5',
     description="Turns Plone Site into Abita Site.",
     long_description=open("README.rst").read(),
     classifiers=[
