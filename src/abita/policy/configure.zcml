@@ -5,10 +5,8 @@
   xmlns:i18n="http://namespaces.zope.org/i18n"
   xmlns="http://namespaces.zope.org/zope">
 
-  <!-- <include package="z3c.jbot"/> -->
+  <include package="abita.development"/>
   <include package="abita.theme"/>
-  <include package="Products.PloneFormGen"/>
-  <!-- <include package=".browser" /> -->
   <i18n:registerTranslations directory="locales" />
 
   <genericsetup:registerProfile

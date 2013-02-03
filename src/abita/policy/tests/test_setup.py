@@ -8,9 +8,6 @@ class TestCase(IntegrationTestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
-    def checkRoles(self, obj, permission):
-        return [item for item in obj.rolesOfPermission(permission) if item['selected'] == 'SELECTED']
-
     def test_is_abita_policy_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('abita.policy'))
@@ -19,17 +16,6 @@ class TestCase(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         installer.uninstallProducts(['abita.policy'])
         self.failIf(installer.isProductInstalled('abita.policy'))
-
-    def test_browserlayer(self):
-        from abita.policy.browser.interfaces import IAbitaPolicyLayer
-        from plone.browserlayer import utils
-        self.failUnless(IAbitaPolicyLayer in utils.registered_layers())
-
-    def test_dashboard(self):
-        tool = getToolByName(self.portal, 'portal_actions')
-        actions = getattr(tool, 'user')
-        action = getattr(actions, 'dashboard')
-        self.assertFalse(action.getProperty('visible'))
 
     def test_properties_title(self):
         self.assertEqual(self.portal.getProperty('title'), 'ABITA')
@@ -146,86 +132,6 @@ class TestCase(IntegrationTestCase):
         folder = self.portal['Members']
         self.assertTrue(folder.exclude_from_nav())
 
-    def test_news_folder__title(self):
-        folder = self.portal['news']
-        self.assertEqual(folder.Title(), 'News')
-
-    def test_news_folder__description(self):
-        folder = self.portal['news']
-        self.assertEqual(folder.Description(), '')
-
-    def test_news_folder__language(self):
-        folder = self.portal['news']
-        self.assertEqual(folder.Language(), '')
-
-    def test_news_folder__exclude_from_nav(self):
-        folder = self.portal['news']
-        self.assertFalse(folder.exclude_from_nav())
-
-    def test_events_folder_exclude_from_nav(self):
-        folder = self.portal['events']
-        self.assertTrue(folder.exclude_from_nav())
-
-    def test_topics_folder__title(self):
-        folder = self.portal['topics']
-        self.assertEqual(folder.Title(), 'Topics')
-
-    def test_topic_folder__language(self):
-        folder = self.portal['topics']
-        self.assertEqual(folder.Language(), '')
-
-    def test_topics_folder__exclude_from_nav(self):
-        folder = self.portal['topics']
-        self.assertFalse(folder.exclude_from_nav())
-
-    def test_services_folder__title(self):
-        folder = self.portal['services']
-        self.assertEqual(folder.Title(), 'Services')
-
-    def test_services_folder__language(self):
-        folder = self.portal['services']
-        self.assertEqual(folder.Language(), '')
-
-    def test_services_folder__exclude_from_nav(self):
-        folder = self.portal['services']
-        self.assertFalse(folder.exclude_from_nav())
-
-    def test_applications_folder__title(self):
-        folder = self.portal['applications']
-        self.assertEqual(folder.Title(), 'Applications')
-
-    def test_applications_folder__language(self):
-        folder = self.portal['applications']
-        self.assertEqual(folder.Language(), '')
-
-    def test_applications_folder__exclude_from_nav(self):
-        folder = self.portal['applications']
-        self.assertFalse(folder.exclude_from_nav())
-
-    def test_company_folder__title(self):
-        folder = self.portal['company']
-        self.assertEqual(folder.Title(), 'Company')
-
-    def test_company_folder__language(self):
-        folder = self.portal['company']
-        self.assertEqual(folder.Language(), '')
-
-    def test_company_folder__exclude_from_nav(self):
-        folder = self.portal['company']
-        self.assertFalse(folder.exclude_from_nav())
-
-    def test_contact_folder__title(self):
-        folder = self.portal['contact']
-        self.assertEqual(folder.Title(), 'Contact')
-
-    def test_contact_folder__language(self):
-        folder = self.portal['contact']
-        self.assertEqual(folder.Language(), '')
-
-    def test_contact_folder__exclude_from_nav(self):
-        folder = self.portal['contact']
-        self.assertFalse(folder.exclude_from_nav())
-
     def test_content_rule(self):
         items = [
             item['name'] for item in self.portal.rolesOfPermission(
@@ -242,10 +148,10 @@ class TestCase(IntegrationTestCase):
             )
         )
 
+    def test_abita_development_installed(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.assertTrue(installer.isProductInstalled('abita.development'))
+
     def test_abita_theme_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('abita.theme'))
-
-    def test_PloneFormGen_installed(self):
-        installer = getToolByName(self.portal, 'portal_quickinstaller')
-        self.failUnless(installer.isProductInstalled('PloneFormGen'))
