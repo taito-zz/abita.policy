@@ -7,6 +7,11 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.7 (2013-02-16)
+================
+
+- Removed browser layer. [taito]
+
 0.6 (2013-02-03)
 ================
 

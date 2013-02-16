@@ -1,0 +1,16 @@
+<configure
+  i18n_domain="abita.policy"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns="http://namespaces.zope.org/zope">
+
+  <genericsetup:upgradeStep
+    description=""
+    destination="2"
+    handler="abita.policy.upgrades.remove_browser_layer"
+    profile="abita.policy:default"
+    sortkey="1"
+    source="1"
+    title="Show path bar"
+    />
+
+</configure>

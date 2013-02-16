@@ -17,6 +17,11 @@ class TestCase(IntegrationTestCase):
         installer.uninstallProducts(['abita.policy'])
         self.failIf(installer.isProductInstalled('abita.policy'))
 
+    def test_metadata__version(self):
+        setup = getToolByName(self.portal, 'portal_setup')
+        self.assertEqual(
+            setup.getVersionForProfile('profile-abita.policy:default'), u'2')
+
     def test_properties_title(self):
         self.assertEqual(self.portal.getProperty('title'), 'ABITA')
 
