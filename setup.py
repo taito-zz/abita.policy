@@ -24,6 +24,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'abita.development',
+        'abita.locales',
         'abita.theme',
         'hexagonit.testing',
         'setuptools'],

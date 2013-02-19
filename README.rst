@@ -7,6 +7,11 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.7.1 (2013-02-19)
+==================
+
+- Added dependency to abita.locales. [taito]
+
 0.7 (2013-02-16)
 ================
 

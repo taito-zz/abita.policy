@@ -6,6 +6,7 @@
   xmlns="http://namespaces.zope.org/zope">
 
   <include package="abita.development"/>
+  <include package="abita.locales"/>
   <include package="abita.theme"/>
   <include file="upgrades.zcml"/>
   <i18n:registerTranslations directory="locales" />
