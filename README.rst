@@ -7,6 +7,11 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.7.2 (2013-02-22)
+==================
+
+- Updated default language to English. [taito]
+
 0.7.1 (2013-02-19)
 ==================
 
