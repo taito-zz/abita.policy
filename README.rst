@@ -7,6 +7,11 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.7.3 (2013-02-24)
+==================
+
+Added Products.LinguaPlone to setup dependency. [taito]
+
 0.7.2 (2013-02-22)
 ==================
 
