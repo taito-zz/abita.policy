@@ -13,4 +13,14 @@
     title="Show path bar"
     />
 
+  <genericsetup:upgradeStep
+    description=""
+    destination="3"
+    handler="abita.policy.upgrades.reimport_actions"
+    profile="abita.policy:default"
+    sortkey="1"
+    source="2"
+    title="Reimport actions"
+    />
+
 </configure>

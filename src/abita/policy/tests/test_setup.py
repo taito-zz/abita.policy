@@ -8,19 +8,54 @@ class TestCase(IntegrationTestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
-    def test_is_abita_policy_installed(self):
+    def test_package_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
-        self.failUnless(installer.isProductInstalled('abita.policy'))
+        self.assertTrue(installer.isProductInstalled('abita.policy'))
 
-    def test_uninstall__package(self):
+    def test_actions__user__dashboard(self):
+        actions = getToolByName(self.portal, 'portal_actions')
+        category = getattr(actions, 'user')
+        self.assertFalse(getattr(category, 'dashboard').getProperty('visible'))
+
+    def test_actions__user__login(self):
+        actions = getToolByName(self.portal, 'portal_actions')
+        category = getattr(actions, 'user')
+        self.assertFalse(getattr(category, 'login').getProperty('visible'))
+
+    def test_actions__portal_tabs__index_html(self):
+        actions = getToolByName(self.portal, 'portal_actions')
+        category = getattr(actions, 'portal_tabs')
+        self.assertFalse(getattr(category, 'index_html').getProperty('visible'))
+
+    def test_mailhost__smtp_host(self):
+        mailhost = getToolByName(self.portal, 'MailHost')
+        self.assertEqual(mailhost.smtp_host, 'smtp.gmail.com')
+
+    def test_mailhost__smtp_port(self):
+        mailhost = getToolByName(self.portal, 'MailHost')
+        self.assertEqual(mailhost.smtp_port, 587)
+
+    def test_metadata__dependency__abita_development(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
-        installer.uninstallProducts(['abita.policy'])
-        self.failIf(installer.isProductInstalled('abita.policy'))
+        self.assertTrue(installer.isProductInstalled('abita.development'))
+
+    def test_metadata__dependency__abita_theme(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.assertTrue(installer.isProductInstalled('abita.theme'))
 
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-abita.policy:default'), u'2')
+            setup.getVersionForProfile('profile-abita.policy:default'), u'3')
+
+    def test_portal_languages__supported_langs(self):
+        tool = getToolByName(self.portal, 'portal_languages')
+        self.assertEquals(tool.listSupportedLanguages(), [
+            ('en', u'English'), ('fi', u'Finnish'), ('ja', u'Japanese')])
+
+    def test_portal_languages__use_request_negotiation(self):
+        tool = getToolByName(self.portal, 'portal_languages')
+        self.assertTrue(tool.use_request_negotiation)
 
     def test_properties_title(self):
         self.assertEqual(self.portal.getProperty('title'), 'ABITA')
@@ -65,23 +100,6 @@ class TestCase(IntegrationTestCase):
             site_props.getProperty('use_email_as_login')
         )
 
-    def test_mailhost__smtp_host(self):
-        mailhost = getToolByName(self.portal, 'MailHost')
-        self.assertEqual(mailhost.smtp_host, 'smtp.gmail.com')
-
-    def test_mailhost__smtp_port(self):
-        mailhost = getToolByName(self.portal, 'MailHost')
-        self.assertEqual(mailhost.smtp_port, 587)
-
-    def test_languages__available(self):
-        tool = getToolByName(self.portal, 'portal_languages')
-        self.assertEquals(tool.listSupportedLanguages(), [
-            ('en', u'English'), ('fi', u'Finnish'), ('ja', u'Japanese')])
-
-    def test_languages__use_request_negotiation(self):
-        tool = getToolByName(self.portal, 'portal_languages')
-        self.assertTrue(tool.use_request_negotiation)
-
     def test_disable_self_reg(self):
         perms = self.portal.rolesOfPermission(permission='Add portal member')
         anon = [perm['selected'] for perm in perms if perm['name'] == 'Anonymous'][0]
@@ -125,3 +143,8 @@ class TestCase(IntegrationTestCase):
     def test_abita_theme_installed(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('abita.theme'))
+
+    def test_uninstall__package(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        installer.uninstallProducts(['abita.policy'])
+        self.assertFalse(installer.isProductInstalled('abita.policy'))
