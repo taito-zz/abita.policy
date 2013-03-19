@@ -7,6 +7,12 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.7.4 (2013-03-19)
+==================
+
+- Hid login link from actions. [taito]
+- Tested with Plone-4.2.5. [taito]
+
 0.7.3 (2013-02-24)
 ==================
 
