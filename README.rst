@@ -7,7 +7,7 @@ Policy package for ABITA site.
 Changelog
 ---------
 
-0.8 (2013-04-xx)
+0.8 (2013-04-16)
 ================
 
 - Moved test packages to extras_require. [taito]
