@@ -7,6 +7,12 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.8 (2013-04-xx)
+================
+
+- Moved test packages to extras_require. [taito]
+- Tested with Plone-4.3. [taito]
+
 0.7.4 (2013-03-19)
 ==================
 
