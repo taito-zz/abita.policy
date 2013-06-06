@@ -43,10 +43,14 @@ class TestCase(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.assertTrue(installer.isProductInstalled('abita.theme'))
 
+    def test_metadata__dependency__plone_app_multilingual(self):
+        installer = getToolByName(self.portal, 'portal_quickinstaller')
+        self.assertTrue(installer.isProductInstalled('plone.app.multilingual'))
+
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-abita.policy:default'), u'3')
+            setup.getVersionForProfile('profile-abita.policy:default'), u'4')
 
     def test_portal_languages__supported_langs(self):
         tool = getToolByName(self.portal, 'portal_languages')
@@ -79,6 +83,11 @@ class TestCase(IntegrationTestCase):
         properties = getToolByName(self.portal, 'portal_properties')
         site_props = properties.site_properties
         self.assertTrue(site_props.getProperty('disable_nonfolderish_sections'))
+
+    def test_propertiestool__displayPublicationDateInByline(self):
+        properties = getToolByName(self.portal, 'portal_properties')
+        site_props = properties.site_properties
+        self.assertTrue(site_props.getProperty('displayPublicationDateInByline'))
 
     def test_propertiestool__external_links_open_new_window(self):
         properties = getToolByName(self.portal, 'portal_properties')
@@ -135,14 +144,6 @@ class TestCase(IntegrationTestCase):
                 "Content rules: Manage rules"
             )
         )
-
-    def test_abita_development_installed(self):
-        installer = getToolByName(self.portal, 'portal_quickinstaller')
-        self.assertTrue(installer.isProductInstalled('abita.development'))
-
-    def test_abita_theme_installed(self):
-        installer = getToolByName(self.portal, 'portal_quickinstaller')
-        self.failUnless(installer.isProductInstalled('abita.theme'))
 
     def test_uninstall__package(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')

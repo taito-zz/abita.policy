@@ -7,49 +7,54 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.9 (2013-06-06)
+================
+
+- Change multilingual package from Products.LinguaPlone to plone.app.multilingual. [taito]
+
 0.8 (2013-04-16)
 ================
 
-- Moved test packages to extras_require. [taito]
-- Tested with Plone-4.3. [taito]
+- Move test packages to extras_require. [taito]
+- Test with Plone-4.3. [taito]
 
 0.7.4 (2013-03-19)
 ==================
 
-- Hid login link from actions. [taito]
-- Tested with Plone-4.2.5. [taito]
+- Hide login link from actions. [taito]
+- Test with Plone-4.2.5. [taito]
 
 0.7.3 (2013-02-24)
 ==================
 
-Added Products.LinguaPlone to setup dependency. [taito]
+Add Products.LinguaPlone to setup dependency. [taito]
 
 0.7.2 (2013-02-22)
 ==================
 
-- Updated default language to English. [taito]
+- Update default language to English. [taito]
 
 0.7.1 (2013-02-19)
 ==================
 
-- Added dependency to abita.locales. [taito]
+- Add dependency to abita.locales. [taito]
 
 0.7 (2013-02-16)
 ================
 
-- Removed browser layer. [taito]
+- Remove browser layer. [taito]
 
 0.6 (2013-02-03)
 ================
 
-- Added dependency to abita.development. [taito]
-- Covered tests. [taito]
-- Tested with Plone-4.2.4. [taito]
+- Add dependency to abita.development. [taito]
+- Cover tests. [taito]
+- Test with Plone-4.2.4. [taito]
 
 0.5 (2013-01-07)
 ================
 
-- Added integration test for Travis CI. [taito]
+- Add integration test for Travis CI. [taito]
 
 0.4 (2012-09-15)
 ================

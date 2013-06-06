@@ -23,10 +23,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Products.LinguaPlone',
         'abita.development',
         'abita.locales',
         'abita.theme',
+        'plone.app.multilingual[archetypes, dexterity]',
         'setuptools'],
     extras_require={'test': ['hexagonit.testing']},
     entry_points="""

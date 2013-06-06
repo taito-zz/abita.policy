@@ -5,22 +5,22 @@
 
   <genericsetup:upgradeStep
     description=""
-    destination="2"
-    handler="abita.policy.upgrades.remove_browser_layer"
-    profile="abita.policy:default"
-    sortkey="1"
-    source="1"
-    title="Show path bar"
-    />
-
-  <genericsetup:upgradeStep
-    description=""
     destination="3"
     handler="abita.policy.upgrades.reimport_actions"
     profile="abita.policy:default"
     sortkey="1"
     source="2"
     title="Reimport actions"
+    />
+
+  <genericsetup:upgradeStep
+    description=""
+    destination="4"
+    handler="abita.policy.upgrades.reimport_propertiestool"
+    profile="abita.policy:default"
+    sortkey="1"
+    source="3"
+    title="Reimport propertiestool"
     />
 
 </configure>

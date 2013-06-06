@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>3</version>
+  <version>4</version>
   <dependencies>
     <dependency>profile-abita.development:default</dependency>
     <dependency>profile-abita.theme:default</dependency>
+    <dependency>profile-plone.app.multilingual:default</dependency>
   </dependencies>
 </metadata>

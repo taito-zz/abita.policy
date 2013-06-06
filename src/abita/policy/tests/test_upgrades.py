@@ -6,17 +6,14 @@ import mock
 class TestCase(IntegrationTestCase):
     """TestCase for Plone setup."""
 
-    def setUp(self):
-        self.portal = self.layer['portal']
-
-    @mock.patch('abita.policy.upgrades.utils')
-    def test_remove_browser_layer(self, utils):
-        from abita.policy.upgrades import remove_browser_layer
-        remove_browser_layer(self.portal)
-        utils.unregister_layer.assert_called_with('abita.policy')
-
-    @mock.patch('abita.policy.upgrades.reimport_profile')
-    def test_reimport_actions(self, reimport_profile):
+    def test_reimport_actions(self):
         from abita.policy.upgrades import reimport_actions
-        reimport_actions(self.portal)
-        reimport_profile.assert_called_with(self.portal, 'profile-abita.policy:default', 'actions')
+        setup = mock.Mock()
+        reimport_actions(setup)
+        setup.runImportStepFromProfile.assert_called_with('profile-abita.policy:default', 'actions', run_dependencies=False, purge_old=False)
+
+    def test_reimport_propertiestool(self):
+        from abita.policy.upgrades import reimport_propertiestool
+        setup = mock.Mock()
+        reimport_propertiestool(setup)
+        setup.runImportStepFromProfile.assert_called_with('profile-abita.policy:default', 'propertiestool', run_dependencies=False, purge_old=False)

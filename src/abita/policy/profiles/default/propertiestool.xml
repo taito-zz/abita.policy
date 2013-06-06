@@ -5,6 +5,7 @@
   <property name="default_page" type="lines">
    <element value="abita-view"/>
   </property>
+  <property name="displayPublicationDateInByline" type="boolean">True</property>
   <property name="external_links_open_new_window" type="string">true</property>
   <property name="webstats_js" type="text">&lt;script type="text/javascript"&gt;
 
