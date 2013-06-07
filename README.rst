@@ -7,6 +7,11 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.10 (2013-06-07)
+=================
+
+- Remove language Finnish. [taito]
+
 0.9 (2013-06-06)
 ================
 
