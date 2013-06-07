@@ -23,4 +23,14 @@
     title="Reimport propertiestool"
     />
 
+  <genericsetup:upgradeStep
+    description=""
+    destination="5"
+    handler="abita.policy.upgrades.reimport_languagetool"
+    profile="abita.policy:default"
+    sortkey="1"
+    source="4"
+    title="Reimport languagetool"
+    />
+
 </configure>

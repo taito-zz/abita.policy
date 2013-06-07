@@ -3,7 +3,6 @@
   <use_request_negotiation value="True"/>
   <supported_langs>
     <element value="en"/>
-    <element value="fi"/>
     <element value="ja"/>
   </supported_langs>
 </object>

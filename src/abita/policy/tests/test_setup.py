@@ -50,12 +50,12 @@ class TestCase(IntegrationTestCase):
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-abita.policy:default'), u'4')
+            setup.getVersionForProfile('profile-abita.policy:default'), u'5')
 
     def test_portal_languages__supported_langs(self):
         tool = getToolByName(self.portal, 'portal_languages')
         self.assertEquals(tool.listSupportedLanguages(), [
-            ('en', u'English'), ('fi', u'Finnish'), ('ja', u'Japanese')])
+            ('en', u'English'), ('ja', u'Japanese')])
 
     def test_portal_languages__use_request_negotiation(self):
         tool = getToolByName(self.portal, 'portal_languages')
