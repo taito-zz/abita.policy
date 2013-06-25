@@ -7,6 +7,11 @@ Policy package for ABITA site.
 Changelog
 ---------
 
+0.11 (2013-06-25)
+=================
+
+- Remove dependency from plone.app.multilingual. [taito]
+
 0.10 (2013-06-07)
 =================
 
