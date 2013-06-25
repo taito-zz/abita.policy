@@ -1,5 +1,9 @@
 from Products.CMFCore.utils import getToolByName
 from abita.policy.tests.base import IntegrationTestCase
+from plone.portlets.interfaces import IPortletAssignmentMapping
+from plone.portlets.interfaces import IPortletManager
+from zope.component import getMultiAdapter
+from zope.component import getUtility
 
 
 class TestCase(IntegrationTestCase):
@@ -43,10 +47,6 @@ class TestCase(IntegrationTestCase):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.assertTrue(installer.isProductInstalled('abita.theme'))
 
-    def test_metadata__dependency__plone_app_multilingual(self):
-        installer = getToolByName(self.portal, 'portal_quickinstaller')
-        self.assertTrue(installer.isProductInstalled('plone.app.multilingual'))
-
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
@@ -60,6 +60,15 @@ class TestCase(IntegrationTestCase):
     def test_portal_languages__use_request_negotiation(self):
         tool = getToolByName(self.portal, 'portal_languages')
         self.assertTrue(tool.use_request_negotiation)
+
+    def test_portlet(self):
+        column = getUtility(IPortletManager, name='plone.leftcolumn')
+        manager = getMultiAdapter((self.portal, column), IPortletAssignmentMapping)
+        self.assertNotIn('navigation', manager.keys())
+        column = getUtility(IPortletManager, name='plone.rightcolumn')
+        manager = getMultiAdapter((self.portal, column), IPortletAssignmentMapping)
+        self.assertNotIn('news', manager.keys())
+        self.assertNotIn('events', manager.keys())
 
     def test_properties_title(self):
         self.assertEqual(self.portal.getProperty('title'), 'ABITA')

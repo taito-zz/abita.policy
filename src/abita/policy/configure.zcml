@@ -7,7 +7,6 @@
   <include package="abita.development"/>
   <include package="abita.locales"/>
   <include package="abita.theme"/>
-  <include package="plone.app.multilingual"/>
   <include file="upgrades.zcml"/>
   <i18n:registerTranslations directory="locales" />
 

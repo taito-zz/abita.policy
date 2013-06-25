@@ -4,6 +4,5 @@
   <dependencies>
     <dependency>profile-abita.development:default</dependency>
     <dependency>profile-abita.theme:default</dependency>
-    <dependency>profile-plone.app.multilingual:default</dependency>
   </dependencies>
 </metadata>

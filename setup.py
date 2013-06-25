@@ -26,7 +26,7 @@ setup(
         'abita.development',
         'abita.locales',
         'abita.theme',
-        'plone.app.multilingual[archetypes, dexterity]',
+        # 'plone.app.multilingual[archetypes, dexterity]',
         'setuptools'],
     extras_require={'test': ['hexagonit.testing']},
     entry_points="""
