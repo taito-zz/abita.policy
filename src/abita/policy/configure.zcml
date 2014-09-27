@@ -11,7 +11,7 @@
   <i18n:registerTranslations directory="locales" />
 
   <genericsetup:registerProfile
-    description="PrimaControl policy: abita.policy"
+    description=""
     directory="profiles/default"
     name="default"
     provides="Products.GenericSetup.interfaces.EXTENSION"
